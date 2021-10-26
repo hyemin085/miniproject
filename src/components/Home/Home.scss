@@ -1,0 +1,41 @@
+@import "../../common/colors.scss";
+
+.checkForm {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(max-content, 20vw));
+  gap: 3%;
+  margin-left: 5vw;
+}
+
+.attendance {
+  width: 15vw;
+  height: 50px;
+  background-color: $primary-color;
+  border: none;
+  border-radius: 10px;
+  margin: 40px;
+  font-size: 20px;
+}
+
+.attendance:hover {
+  color: white;
+  background-color: #2b4259;
+}
+
+.attInput {
+  text-align: center;
+}
+
+.plzLogin {
+  margin: 50px;
+}
+
+.attText {
+  width: 250px;
+  height: 25px;
+  border-radius: 10px;
+  background-color: #e2e2e2;
+  border: none;
+  margin-left: 3px;
+}
+input:focus {outline:none}
