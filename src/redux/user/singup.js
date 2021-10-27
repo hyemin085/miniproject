@@ -1,5 +1,4 @@
 import {createAsyncThunk} from "@reduxjs/toolkit";
-import axios from "axios";
 import Api from "../../common/apis/Api";
 
 export const singup = createAsyncThunk(

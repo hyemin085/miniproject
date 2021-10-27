@@ -9,7 +9,7 @@ const CheckCard = ({date, user}) => {
     <>
 
      <div className="checkCard">
-       <div class="cardText">{date}</div>
+       <div className="cardText">{date}</div>
        {user.map((user) => (
          <>
          <div className="cardText">{user.name} : {user.message} <span className="time">⏰{user.time}</span></div>

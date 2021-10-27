@@ -9,11 +9,17 @@ const Home = () => {
   const dispatch = useDispatch();
   const [textInput, SetTextInput] = useState();
   const token = localStorage.getItem("user");
-  const accessToken = JSON.parse(token).accessToken;
+
+  const a = useSelector(state=>state);
+  console.log(a);
+
+
+
+
 
   const HandlerTextInput = (event) => {
     event.preventDefault();
-
+    const accessToken = JSON.parse(token).accessToken;
     dispatch(addAtt({
       accessToken,
       textInput,
@@ -21,11 +27,16 @@ const Home = () => {
     SetTextInput("");
   }
 
+
   useEffect(() => {
     dispatch(getAtt());
   }, [dispatch]);
   const atts = useSelector((state) => state.att.info);
   const name = token ? JSON.parse(token).name : "로그인하세요";
+
+
+
+
 
   if (!token) {
     return (

@@ -8,18 +8,19 @@
 }
 
 .attendance {
-  width: 15vw;
+  width: 10vw;
   height: 50px;
   background-color: $primary-color;
   border: none;
   border-radius: 10px;
   margin: 40px;
   font-size: 20px;
+  box-shadow: 2px 2px 2px gray;
+  transition-duration: 0.3s;
 }
 
-.attendance:hover {
-  color: white;
-  background-color: #2b4259;
+.attendance:active {
+  box-shadow: none;
 }
 
 .attInput {

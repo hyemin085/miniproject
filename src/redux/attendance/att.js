@@ -1,6 +1,8 @@
-import {createSlice, createAsyncThunk} from "@reduxjs/toolkit";
+import {logout} from "../user/login";
+import {createAsyncThunk} from "@reduxjs/toolkit";
 import Api from "../../common/apis/Api";
-import axios from "axios";
+
+
 
 export const getAtt = createAsyncThunk(
   "att/getAtt",
@@ -26,33 +28,19 @@ export const addAtt = createAsyncThunk(
           Authorization: `Bearer ${accessToken}`,
         },
       });
+      const a = response.data.message;
+      alert(a);
+
     } catch (e) {
+
+      const b = e.response.data.message;
+      alert(b);
+      await thunkAPI.dispatch(logout());
       return thunkAPI.rejectWithValue({
-        error: "이미 오늘 출석을 완료했습니다.",
+        error: b,
       });
     }
     await thunkAPI.dispatch(getAtt());
 
   }
 )
-
-const initialState={
-  info: [],
-}
-
-export const attSlice = createSlice({
-  name: "att",
-  initialState: initialState,
-  reducers: {
-
-  },
-  extraReducers: {
-    [getAtt.fulfilled]: (state, action) => {
-      state.info = action.payload.info;
-    },
-  },
-});
-
-
-
-export default attSlice.reducer;

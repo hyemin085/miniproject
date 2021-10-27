@@ -1,7 +1,8 @@
 import {createAsyncThunk} from "@reduxjs/toolkit";
 import Api from "../../common/apis/Api";
 import jwt_decode from "jwt-decode";
-import {history} from "../store";
+import {history} from "../history";
+
 
 
 export const login = createAsyncThunk(
@@ -24,13 +25,14 @@ export const login = createAsyncThunk(
           accessToken: token,
         };
         localStorage.setItem("user", JSON.stringify(user_data));
-        history.replace("/");
+        history.push("/");
       });
+      return response;
     } catch (e) {
       console.log(e);
     }
   }
-)
+);
 
 export const logout = createAsyncThunk(
   "user/logout",
@@ -38,4 +40,5 @@ export const logout = createAsyncThunk(
     localStorage.removeItem("user");
     return;
   }
-)
+
+);

@@ -1,15 +1,16 @@
 import { configureStore } from "@reduxjs/toolkit";
-import {attSlice} from "./attendance/att";
-import userSlice from "./user/userSlice";
 import { connectRouter, } from "connected-react-router";
-import { createBrowserHistory } from 'history'
+import {history} from "./history";
 
-export const history = createBrowserHistory();
+import {attSlice} from "./attendance/attSlice";
+import userSlice from "./user/userSlice";
+
 
 export const store = configureStore({
   reducer: {
-    att: attSlice.reducer,
-    user: userSlice,
     router: connectRouter(history),
+    att: attSlice.reducer,
+    user: userSlice.reducer,
+
   },
 });

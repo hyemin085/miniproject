@@ -9,13 +9,15 @@ import Singup from "./components/Singup/Singup";
 
 
 import { ConnectedRouter } from "connected-react-router";
-import {history} from "./redux/store";
+import {history} from "./redux/history";
+
 
 
 function App() {
   return (
     <>
     <div className="App">
+
 <Router>
 <Header></Header>
   <ConnectedRouter history={history}>
@@ -26,6 +28,7 @@ function App() {
           <Route path="/singup" exact component={Singup} />
         </Switch>
   </ConnectedRouter>
+
 </Router>
     </div>
     </>

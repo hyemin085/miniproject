@@ -1,7 +1,7 @@
 import React, {useEffect} from "react";
 import {Link} from "react-router-dom";
 import "./Header.scss"
-import {history} from "../../redux/store";
+import {history} from "../../redux/history";
 import {useDispatch, useSelector} from "react-redux";
 import {logout} from "../../redux/user/login";
 import {loginCheck} from "../../redux/user/userSlice";
@@ -11,8 +11,11 @@ const Header = () => {
 
   const token = localStorage.getItem("user");
   const isLogin = useSelector((state) => state.user.isLogin)
+
   if (token) {
     dispatch(loginCheck(token));
+  }else{
+    dispatch(logout());
   }
 
   if(!token){
@@ -34,6 +37,7 @@ const Header = () => {
 
   )
 }
+
   return(
     <>
       <div className="header">
