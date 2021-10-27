@@ -1,6 +1,8 @@
 import {login, logout} from "./login";
 import {createSlice} from "@reduxjs/toolkit";
 
+
+
 const userSlice = createSlice({
   name: 'user',
   initialState: {
@@ -13,21 +15,20 @@ const userSlice = createSlice({
       state.isLogin = true;
       state.userId = JSON.parse(payload).userId;
       state.name = JSON.parse(payload).name;
-
     },
   },
   extraReducers: {
+    [logout.fulfilled]: (state) => {
+      state.isLogin = false;
+    },
     [login.fulfilled]: (state) => {
       state.userId = "";
       state.name = "";
       state.isLogin = true;
     },
-    [logout.fulfilled]: (state) => {
-      state.isLogin = false;
-    }
   },
 });
 
 export const {loginCheck} = userSlice.actions;
 
-export default userSlice.reducer;
+export default userSlice;
