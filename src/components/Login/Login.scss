@@ -10,9 +10,52 @@
 
 .login:last-child{
   grid-column: 2/3;
-
+ background-color: $login-color;
+  color: $font-primary;
 }
+.leftLogin {
+  height: 20vh;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+}
+
+.leftLogin> h1 {
+  margin-top: 200px;
+}
+
+.signUpInfo {
+  margin-bottom: 150px;
+}
+
 
 .login:first-child{
-  margin: 0 auto;
+  margin: 20% auto;
 }
+
+.buttons {
+  width: 150px;
+  height: 40px;
+  border-radius: 20px;
+  background-color: $login-color;
+  border: none;
+  color: $font-primary;
+}
+.buttons:active{
+  background-color: $login-color;
+  color: $font-primary;
+}
+.singUpBtn:active {
+  background-color: $font-primary;
+  color: $login-color;
+}
+
+.singUpBtn {
+  width: 150px;
+  height: 40px;
+  border-radius: 20px;
+  background-color: $login-color;
+  border: 1px solid $font-primary;
+  color: $font-primary;
+}
+

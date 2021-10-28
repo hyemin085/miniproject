@@ -3,7 +3,7 @@ import {Link} from "react-router-dom";
 import {login} from "../../redux/user/login";
 import {useDispatch} from "react-redux";
 import "./Login.scss"
-
+import escape from "../../image/escape.png"
 
 const Login = () => {
   const dispatch = useDispatch();
@@ -40,13 +40,20 @@ const Login = () => {
               value={password}
               onChange={(e)=>SetPassWord(e.target.value)}/></div>
 
-          <button type="submit" onClick={LoginHandler}>로그인</button>
-          <Link to="/singup">
-          <button>회원가입</button>
-          </Link>
+          <button type="submit" onClick={LoginHandler} className="buttons">로그인</button>
+
         </form>
       </div>
-      <div className="login"><img src="https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdn%2FVFXFC%2Fbtri67BORMW%2Forx2R8yWs3HJLegGVjqYn0%2Fimg.jpg"/></div>
+      <div className="login">
+        <div className="leftLogin">
+          <h1>Welcome Back!</h1>
+          <div class = "signUpInfo">To keep connected with us please login with your personal info.</div>
+
+          <Link to="/singup">
+            <button className="singUpBtn" >SIGN UP</button>
+          </Link>
+        </div>
+      </div>
       </div>
       </>
 
