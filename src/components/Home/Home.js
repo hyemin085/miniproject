@@ -1,25 +1,24 @@
 import React, {useEffect, useState} from "react";
-import {addAtt, getAtt} from "../../redux/attendance/att";
-
 import "./Home.scss"
-import CheckCard from "../CheckCard/CheckCard";
 import {useDispatch, useSelector} from "react-redux";
+
+
+import {addAtt, getAtt} from "../../redux/attendance/att";
+import CheckCard from "../CheckCard/CheckCard";
+import Pagination from "react-js-pagination";
 
 const Home = () => {
   const dispatch = useDispatch();
   const [textInput, SetTextInput] = useState();
+
+  const [page, setPage] = useState(1);
+
   const token = localStorage.getItem("user");
-
-  const a = useSelector(state=>state);
-  console.log(a);
-
-
-
-
 
   const HandlerTextInput = (event) => {
     event.preventDefault();
     const accessToken = JSON.parse(token).accessToken;
+
     dispatch(addAtt({
       accessToken,
       textInput,
@@ -27,14 +26,21 @@ const Home = () => {
     SetTextInput("");
   }
 
-
   useEffect(() => {
-    dispatch(getAtt());
+    dispatch(getAtt({page}));
+
   }, [dispatch]);
+
+
   const atts = useSelector((state) => state.att.info);
   const name = token ? JSON.parse(token).name : "로그인하세요";
 
-
+  const handlePageChange = (page) => {
+    setPage(page);
+    dispatch(getAtt({
+      page
+    }))
+  };
 
 
 
@@ -46,10 +52,18 @@ const Home = () => {
     <div className="home">
       <div className="checkForm">
         {atts.map((att) => (
-          <CheckCard  date={att.date} user={att.users}/>
+          <CheckCard  date={att.date} user={att.users} />
         ))}
       </div>
     </div>
+<Pagination
+  activePage={page}
+  itemsCountPerPage={8}
+  totalItemsCount={20}
+  pageRangeDisplayed={8}
+  prevPageText={"‹"} nextPageText={"›"}
+  onChange={handlePageChange}
+  />
       </>
     )
   }
@@ -70,6 +84,14 @@ const Home = () => {
             ))}
           </div>
         </div>
+        <Pagination
+          activePage={page}
+          itemsCountPerPage={8}
+          totalItemsCount={20}
+          pageRangeDisplayed={8}
+          prevPageText={"‹"} nextPageText={"›"}
+          onChange={handlePageChange}
+        />
           </>
     )}
 };

@@ -6,9 +6,9 @@ import Api from "../../common/apis/Api";
 
 export const getAtt = createAsyncThunk(
   "att/getAtt",
-  async() => {
+  async({page}) => {
     const response = await Api.get(
-      `/attandance/attInfo`
+      `/attandance/attInfo?page=${page}`,
     );
     return response.data;
   }
