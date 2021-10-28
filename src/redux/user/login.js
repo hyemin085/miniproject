@@ -38,6 +38,7 @@ export const logout = createAsyncThunk(
   "user/logout",
   async (data, thunkAPI) => {
     localStorage.removeItem("user");
+    history.push("/");
     return;
   }
 

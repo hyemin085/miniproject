@@ -20,6 +20,7 @@ const userSlice = createSlice({
   extraReducers: {
     [logout.fulfilled]: (state) => {
       state.isLogin = false;
+
     },
     [login.fulfilled]: (state) => {
       state.userId = "";

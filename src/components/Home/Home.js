@@ -22,14 +22,14 @@ const Home = () => {
     dispatch(addAtt({
       accessToken,
       textInput,
-    }), [dispatch]);
+    }), []);
     SetTextInput("");
   }
 
   useEffect(() => {
     dispatch(getAtt({page}));
+  }, []);
 
-  }, [dispatch]);
 
 
   const atts = useSelector((state) => state.att.info);
@@ -41,8 +41,6 @@ const Home = () => {
       page
     }))
   };
-
-
 
   if (!token) {
     return (
@@ -70,7 +68,6 @@ const Home = () => {
     if(token){
     return (
       <>
-
           <div>{name}님 어서오세요</div>
         <div className="attInput">
         <input className="attText" maxLength="10" type="text" value={textInput}

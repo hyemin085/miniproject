@@ -1,6 +1,7 @@
 import {createSlice} from "@reduxjs/toolkit";
 import {getAtt} from "./att";
 
+
 const initialState={
   info: [],
 }

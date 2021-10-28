@@ -1,12 +1,13 @@
 import {logout} from "../user/login";
 import {createAsyncThunk} from "@reduxjs/toolkit";
 import Api from "../../common/apis/Api";
-
+import {history} from "../history";
 
 
 export const getAtt = createAsyncThunk(
   "att/getAtt",
   async({page}) => {
+    console.log(page);
     const response = await Api.get(
       `/attandance/attInfo?page=${page}`,
     );
@@ -32,7 +33,6 @@ export const addAtt = createAsyncThunk(
       alert(a);
 
     } catch (e) {
-
       const b = e.response.data.message;
       alert(b);
       await thunkAPI.dispatch(logout());
@@ -40,7 +40,8 @@ export const addAtt = createAsyncThunk(
         error: b,
       });
     }
-    await thunkAPI.dispatch(getAtt());
+    const page = 1;
+   await thunkAPI.dispatch(getAtt({page}));
 
   }
 )

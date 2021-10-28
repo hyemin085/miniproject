@@ -2,6 +2,8 @@ import React, {useState} from "react";
 import {Link} from "react-router-dom";
 import {login} from "../../redux/user/login";
 import {useDispatch} from "react-redux";
+import "./Login.scss"
+
 
 const Login = () => {
   const dispatch = useDispatch();
@@ -11,7 +13,6 @@ const Login = () => {
 
   const LoginHandler = (event) => {
     event.preventDefault();
-    console.log(email, password)
     if(email==="" || password===""){
       alert("빈칸");
     }
@@ -19,15 +20,18 @@ const Login = () => {
       email,
       password
     }),[dispatch])
+    SetEmail("");
+    SetPassWord("");
   }
 
   return(
     <>
+      <div className="login-Form">
       <div className="login">
         <h1>출석체크</h1>
         <form className="loginForm" >
           <h1>Logo</h1>
-          <div>아이디
+          <div>이메일
             <input value={email}
                    onChange={(e)=>SetEmail(e.target.value)}/></div>
           <div>패스워드
@@ -41,9 +45,10 @@ const Login = () => {
           <button>회원가입</button>
           </Link>
         </form>
-
       </div>
-    </>
+      <div className="login"><img src="https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdn%2FVFXFC%2Fbtri67BORMW%2Forx2R8yWs3HJLegGVjqYn0%2Fimg.jpg"/></div>
+      </div>
+      </>
 
   )
 };
