@@ -1,10 +1,25 @@
 @import "../../common/colors.scss";
 
+@font-face {
+  font-family: 'GowunDodum-Regular';
+  src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2108@1.1/GowunDodum-Regular.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+}
+
+.homeColor{
+  background-color: #f0f0f0;
+  height: 100%;
+  min-height: 80vh;
+  position: relative;
+}
+
 .checkForm {
   display: grid;
-  grid-template-columns: repeat(4, minmax(max-content, 20vw));
-  gap: 3%;
-  margin-left: 5vw;
+  grid-template-columns: repeat(4, 25%);
+  grid-column-gap: 0;
+  grid-row-gap: 30px;
+  padding-left: 5%;
 }
 
 .attendance {
@@ -26,32 +41,43 @@
 .attInput {
   text-align: center;
 }
-
+.welcomeName {
+  display: flex;
+  text-align: center;
+  font-size: 25px;
+  font-family: 'GowunDodum-Regular';
+  padding-top: 10px;
+  margin-left: 10%;
+}
 .plzLogin {
-  margin: 50px;
+  height: 50px;
 }
 
 .attText {
-  width: 250px;
-  height: 25px;
-  border-radius: 10px;
+  border-radius: 3px;
   background-color: #e2e2e2;
+  width: 250px;
+  height: 30px;
   border: none;
-  margin-left: 3px;
+  margin-bottom: 10px;
+  padding: 5px;
 }
-input:focus {outline:none}
+input:focus {
+  outline:$login-color}
 
 .pagination {
   display: flex;
+  position: fixed;
   justify-content: center;
-  margin-top: 15px;
+  bottom: 20px;
+  left: 44%;
+
 }
 ul {
   list-style: none;
   padding: 0;
 }
 ul.pagination li {
-
   width: 30px;
   height: 30px;
   border: 1px
@@ -61,6 +87,7 @@ ul.pagination li {
   justify-content: center;
   align-items: center;
   font-size: 1rem;
+  background-color: $font-primary;
 }
 ul.pagination li:first-child{
   border-radius: 5px 0 0 5px;
@@ -69,22 +96,26 @@ ul.pagination li:last-child{
   border-radius: 0 5px 5px 0;
 }
 ul.pagination li a {
+
   text-decoration: none;
-  color: #337ab7;
+  color: $login-color;
   font-size: 1rem;
 }
 ul.pagination li.active a {
   color: white;
 }
 ul.pagination li.active {
-  background-color: #337ab7;
+  background-color: $login-color;
 }
 ul.pagination li a:hover, ul.pagination li a.active {
-  color: blue;
+  color: orange;
+
 }
 .page-selection {
   width: 48px;
   height: 30px;
   color: #337ab7;
 }
+
+
 

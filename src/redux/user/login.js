@@ -3,7 +3,7 @@ import Api from "../../common/apis/Api";
 import jwt_decode from "jwt-decode";
 import {history} from "../history";
 
-
+const naverURL = "http://222.238.117.41:8081/oAuth/naver/callback";
 
 export const login = createAsyncThunk(
   "user/login",
@@ -34,12 +34,12 @@ export const login = createAsyncThunk(
   }
 );
 
+
 export const logout = createAsyncThunk(
   "user/logout",
   async (data, thunkAPI) => {
     localStorage.removeItem("user");
     history.push("/");
-    return;
   }
 
 );

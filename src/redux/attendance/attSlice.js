@@ -15,6 +15,7 @@ export const attSlice = createSlice({
   extraReducers: {
     [getAtt.fulfilled]: (state, action) => {
       state.info = action.payload.info;
+      state.totalItems = action.payload.totalItems;
     },
   },
 });

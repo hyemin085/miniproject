@@ -1,1 +1,17 @@
-@import "../../common/colors.scss";
+@import "../../common/colors.scss  ";
+@import "../../common/elements.scss";
+
+.signUpForm {
+  width: 100%;
+  height: 98vh;
+  display: grid;
+  grid-template-columns: repeat(2, 50%);
+}
+
+.signUpForms:first-child{
+  text-align: center;
+  background-color: $login-color;
+}
+.signUpForms:last-child{
+  text-align: center;
+}

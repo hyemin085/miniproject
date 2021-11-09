@@ -1,35 +1,52 @@
 @import "../../common/colors.scss";
 
+@font-face {
+  font-family: 'Dongle-Regular';
+  src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2108_2@1.0/Dongle-Regular.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'GowunDodum-Regular';
+  src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2108@1.1/GowunDodum-Regular.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+}
+
 .checkCard {
-  background-color: #f49882;
-  width: 20vw;
-  height: 200px;
-  border-radius: 10px;
+  width: 17vw;
+  height: 210px;
   line-height: 30px;
   box-shadow: 8px 8px 8px grey;
+  background-color: white;
   border: none;
   margin-bottom: 10px;
   padding: 10px;
+  font-family: 'GowunDodum-Regular';
+
 }
 
 .cardText{
-  font-size: 12px;
+  font-size: 15px;
 }
 
-.cardText:nth-child(1) {
-  margin-top: 5vh;
-}
 
 .cardText:first-child{
-  width: 10vw;
-  margin: -15px 80px 0 20px;
-  font-size: 1.8vw;
-  background-color: black;
+  width: 15vw;
+  font-size: 1.5vw;
   border: none;
-  color: white;
-  transform: rotate(-3deg);
+  font-weight: 600;
+  border-bottom: 2px solid black;
+
 }
 
 .time {
-  font-size: 1vw;
+  font-size: 11px;
+}
+
+.checkCard:nth-child(1),
+.checkCard:nth-child(3),
+.checkCard:nth-child(6),
+.checkCard:nth-child(8){
+  background-color: $card-color;
 }

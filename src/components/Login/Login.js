@@ -3,7 +3,29 @@ import {Link} from "react-router-dom";
 import {login} from "../../redux/user/login";
 import {useDispatch} from "react-redux";
 import "./Login.scss"
-import escape from "../../image/escape.png"
+import {motion} from "framer-motion";
+import {buttonVariants} from "../../common/animation";
+
+import {Naver_login} from "./Naver_login";
+import Naver_logo from "../../image/naver_logo.png"
+
+
+
+const containerVariants = {
+  hidden: {
+    opacity: 1,
+    x: '-50vw'
+  },
+  visible: {
+    opacity: 1,
+    x: 0,
+    transition: {
+      duration: 0.5
+    }
+  }
+}
+
+
 
 const Login = () => {
   const dispatch = useDispatch();
@@ -13,49 +35,58 @@ const Login = () => {
 
   const LoginHandler = (event) => {
     event.preventDefault();
-    if(email==="" || password===""){
+    if (email === "" || password === "") {
       alert("빈칸");
     }
     dispatch(login({
       email,
       password
-    }),[dispatch])
-    SetEmail("");
-    SetPassWord("");
+    }), [dispatch])
   }
 
-  return(
+
+
+  return (
     <>
       <div className="login-Form">
-      <div className="login">
-        <h1>출석체크</h1>
-        <form className="loginForm" >
-          <h1>Logo</h1>
-          <div>이메일
-            <input value={email}
-                   onChange={(e)=>SetEmail(e.target.value)}/></div>
-          <div>패스워드
-            <input
-              type={"password"}
-              value={password}
-              onChange={(e)=>SetPassWord(e.target.value)}/></div>
+        <div className="login">
+          <h1 className="formMargin">Sign in</h1>
+          <form className="loginForm">
+            <div>
+              <input className="Input" value={email} placeholder="Email"
+                     onChange={(e) => SetEmail(e.target.value)}/></div>
+            <div>
+              <input className="Input"
+                     placeholder="Password"
+                     type={"password"}
+                     value={password}
+                     onChange={(e) => SetPassWord(e.target.value)}/></div>
 
-          <button type="submit" onClick={LoginHandler} className="buttons">로그인</button>
+            <motion.button type="submit" onClick={LoginHandler} className="colorBtn"
+                           variants={buttonVariants}
+                           whileHover="hover">로그인
+            </motion.button>
+            <br/>
+            <Naver_login/>
 
-        </form>
-      </div>
-      <div className="login">
-        <div className="leftLogin">
-          <h1>Welcome Back!</h1>
-          <div class = "signUpInfo">To keep connected with us please login with your personal info.</div>
-
-          <Link to="/singup">
-            <button className="singUpBtn" >SIGN UP</button>
-          </Link>
+          </form>
         </div>
+        <motion.div className="login"
+                    variants={containerVariants}
+                    initial="hidden"
+                    animate="visible">
+          <div className="rightLogin">
+            <h1 className="formMargin">Hello !</h1>
+            <div class="signUpInfo">Enter your personal details and start journey with us</div>
+
+            <Link to="/singup">
+              <motion.button className="noneColorBtn" variants={buttonVariants}
+                      whileHover="hover">SIGN UP</motion.button>
+            </Link>
+          </div>
+        </motion.div>
       </div>
-      </div>
-      </>
+    </>
 
   )
 };

@@ -7,7 +7,7 @@ import {history} from "../history";
 export const getAtt = createAsyncThunk(
   "att/getAtt",
   async({page}) => {
-    console.log(page);
+    // console.log(page);
     const response = await Api.get(
       `/attandance/attInfo?page=${page}`,
     );
@@ -34,7 +34,7 @@ export const addAtt = createAsyncThunk(
 
     } catch (e) {
       const b = e.response.data.message;
-      alert(b);
+      alert("로그인을 다시해주세요");
       await thunkAPI.dispatch(logout());
       return thunkAPI.rejectWithValue({
         error: b,

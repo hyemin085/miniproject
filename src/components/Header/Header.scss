@@ -1,13 +1,32 @@
 @import "../../common/colors.scss";
-
+@import url('https://fonts.googleapis.com/css2?family=Monoton&display=swap');
 .header {
-  background-color: $secondary-color;
-  height: 72px;
-  padding: 0 40px;
+  height: 70px;
+}
+.headerLine {
+  height: 50px;
+  padding: 0 40px 10px 40px;
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  justify-content: flex-start;
   font-size: 20px;
   font-weight: bold;
+  //background-color: #f0f0f0;
+
 }
+.present {
+  color: #5a6776;
+  font-family: 'Monoton', cursive;
+  cursor: pointer;
+  font-size: 28px;
+  margin-top: 10px;
+  margin-right: 60px;
+
+}
+
+.nav {
+  margin-top: 20px;
+  font-size: 15px;
+}
+
 

@@ -5,6 +5,7 @@ import {history} from "../../redux/history";
 import {useDispatch, useSelector} from "react-redux";
 import {logout} from "../../redux/user/login";
 import {loginCheck} from "../../redux/user/userSlice";
+import {motion} from "framer-motion";
 
 const Header = () => {
   const dispatch = useDispatch();
@@ -14,43 +15,53 @@ const Header = () => {
 
   if (token) {
     dispatch(loginCheck(token));
-  }else{
+  } else {
     dispatch(logout());
   }
 
-  if(!token){
-  return(
+  if (!token) {
+    return (
+      <>
+        <div className="header">
+          <div className="headerLine">
+            <div className="present" onClick={() => {
+              history.push("/")
+            }}>Present
+            </div>
+
+
+            <motion.div className="nav" onClick={() => {
+              history.push("/login")
+            }}
+                        whileHover={{scale: 1.3, originX: 0, color: '#c49f9b'}}
+                        transition={{type: 'spring', stiffness: 300}}
+            > login
+            < /motion.div>
+          </div>
+
+        </div>
+      </>
+
+    )
+  }
+
+  return (
     <>
       <div className="header">
-
-          <div onClick={() => {
-            history.push("/home")
-          }}>Home</div>
-
-
-        <div onClick={() => {
-          history.push("/login")
-        }}>로그인</div>
-
-      </div>
-    </>
-
-  )
-}
-
-  return(
-    <>
-      <div className="header">
-
-        <div onClick={() => {
-          history.push("/home")
-        }}>Home</div>
+        <div className="headerLine">
+          <div className="present" onClick={() => {
+            history.push("/")
+          }}>Present
+          </div>
 
 
-        <div onClick={() => {
-          dispatch(logout())
-        }}>로그아웃</div>
+          <motion.div className="nav" onClick={() => {
+            dispatch(logout())
+          }}  whileHover={{scale: 1.3, originX: 0, color: '#c49f9b'}}
+                      transition={{type: 'spring', stiffness: 300}}>logout
+          </motion.div>
 
+        </div>
       </div>
     </>
 
