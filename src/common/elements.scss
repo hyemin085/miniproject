@@ -1,0 +1,44 @@
+@import "./colors";
+
+.Input {
+  width: 250px;
+  height: 30px;
+  background-color: #eeeeee;
+  border: none;
+  margin-bottom: 10px;
+  padding: 5px;
+}
+
+
+.formMargin {
+  margin-top: 200px;
+}
+
+.colorBtn {
+  width: 150px;
+  height: 40px;
+  border-radius: 20px;
+  background-color: $login-color;
+  border: none;
+  color: $font-primary;
+  cursor: pointer;
+  &:active {
+    border:1px solid $login-color;
+    background-color: $font-primary;
+    color: $login-color;
+  }
+}
+
+.noneColorBtn {
+  width: 150px;
+  height: 40px;
+  border-radius: 20px;
+  background-color: $login-color;
+  border: 1px solid $font-primary;
+  color: $font-primary;
+  cursor: pointer;
+  &:active {
+    background-color: $font-primary;
+    color: $login-color;
+  }
+}

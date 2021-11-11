@@ -7,7 +7,6 @@ import {motion} from "framer-motion";
 import {buttonVariants} from "../../common/animation";
 
 import {Naver_login} from "./Naver_login";
-import Naver_logo from "../../image/naver_logo.png"
 
 
 
@@ -77,7 +76,7 @@ const Login = () => {
                     animate="visible">
           <div className="rightLogin">
             <h1 className="formMargin">Hello !</h1>
-            <div class="signUpInfo">Enter your personal details and start journey with us</div>
+            <div class="signUpInfo">출석체크를 하시려면 회원가입을 해주세요 .</div>
 
             <Link to="/singup">
               <motion.button className="noneColorBtn" variants={buttonVariants}

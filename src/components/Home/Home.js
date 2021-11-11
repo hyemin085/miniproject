@@ -40,7 +40,6 @@ const Home = () => {
   const [page, setPage] = useState(1);
 
 
-
   const token = localStorage.getItem("user");
 
   const HandlerTextInput = (event) => {

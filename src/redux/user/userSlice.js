@@ -1,5 +1,7 @@
 import {login, logout} from "./login";
 import {createSlice} from "@reduxjs/toolkit";
+import ChangeName from "../../components/ChangeUser/ChangeName";
+import {nicknameChange} from "./profile";
 
 
 
@@ -26,6 +28,10 @@ const userSlice = createSlice({
       state.userId = "";
       state.name = "";
       state.isLogin = true;
+    },
+    [nicknameChange.fulfilled]: (state, {payload}) => {
+      // state.user = updatedUser;
+      console.log("실행");
     },
   },
 });

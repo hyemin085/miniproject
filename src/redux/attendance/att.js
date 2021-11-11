@@ -1,7 +1,7 @@
 import {logout} from "../user/login";
 import {createAsyncThunk} from "@reduxjs/toolkit";
 import Api from "../../common/apis/Api";
-import {history} from "../history";
+
 
 
 export const getAtt = createAsyncThunk(

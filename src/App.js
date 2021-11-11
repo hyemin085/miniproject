@@ -1,6 +1,6 @@
 import React from "react";
 import './App.scss';
-import {BrowserRouter as Router, Route, Switch} from "react-router-dom";
+import {BrowserRouter as Router, HashRouter, Route, Switch} from "react-router-dom";
 import {AnimatePresence} from "framer-motion";
 
 
@@ -9,6 +9,7 @@ import Header from "./components/Header/Header";
 import Login from "./components/Login/Login";
 import Singup from "./components/Singup/Singup";
 import Footer from "./components/Footer/Footer";
+import ChangeName from "./components/ChangeUser/ChangeName";
 
 
 
@@ -24,6 +25,7 @@ function App() {
 
 <Router>
 <Header></Header>
+  <Router>
   <ConnectedRouter history={history}>
         <Switch>
           <Route path="/" exact component={Home} />
@@ -31,9 +33,13 @@ function App() {
           <Route path="/login" exact component={Login} />
           <Route path="/singup" exact component={Singup} />
           <Route path="/naver" component={Home}/>
+          <Route path="/changename" exact component={ChangeName}/>
+          <Route path="/*" component={Home}/>
+
 
         </Switch>
   </ConnectedRouter>
+  </Router>
 <Footer/>
 </Router>
 
