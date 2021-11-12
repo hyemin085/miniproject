@@ -1,7 +1,5 @@
 <h1>출석체크페이지</h1>
 
+계속 손보고 있는중.
 
-로그인
-로그아웃
-출석체크
-글남기기 구현
+![checkin](https://user-images.githubusercontent.com/85723134/141512153-4c784d5d-e38e-48be-a5c5-0c77c41e7303.gif)
