@@ -5,6 +5,7 @@ import {singup} from "../../redux/user/singup";
 import "./Singup.scss";
 import {motion} from "framer-motion";
 import {buttonVariants} from "../../common/animation";
+import login from "../../image/login.png";
 
 const containerVariants = {
   hidden: {
@@ -51,12 +52,17 @@ const Signup = () => {
                     initial="hidden"
                     animate="visible">
           <div className="rightSignUp">
-            <h1 className="formMargin">Hello !</h1>
-            <div className="signUpInfo">Enter your personal details and start journey with us</div>
+            <h1 className="formMargin">
+              <img src={login}/>
+            </h1>
+            <div className="signUpInfo">
+              오늘하루 공부의 시작전에 <br/>
+              출석체크에 로그인하고 스터디원에게 알려주세요 !
+            </div>
             <Link to="/login">
               <motion.button className="noneColorBtn"
                              variants={buttonVariants}
-                             whileHover="hover">SIGN IN
+                             whileHover="hover">LOGIN
               </motion.button>
             </Link>
           </div>

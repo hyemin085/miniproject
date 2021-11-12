@@ -10,7 +10,7 @@ import Login from "./components/Login/Login";
 import Singup from "./components/Singup/Singup";
 import Footer from "./components/Footer/Footer";
 import ChangeName from "./components/ChangeUser/ChangeName";
-
+import ChangePassword from "./components/ChangeUser/ChangePassword";
 
 
 import { ConnectedRouter } from "connected-react-router";
@@ -34,6 +34,7 @@ function App() {
           <Route path="/singup" exact component={Singup} />
           <Route path="/naver" component={Home}/>
           <Route path="/changename" exact component={ChangeName}/>
+          <Route path="/changepwd" exact component={ChangePassword}/>
           <Route path="/*" component={Home}/>
 
 

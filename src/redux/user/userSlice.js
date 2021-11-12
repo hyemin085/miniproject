@@ -1,7 +1,6 @@
 import {login, logout} from "./login";
 import {createSlice} from "@reduxjs/toolkit";
-import ChangeName from "../../components/ChangeUser/ChangeName";
-import {nicknameChange} from "./profile";
+import {nicknameChange, pwdChange} from "./profile";
 
 
 
@@ -11,6 +10,7 @@ const userSlice = createSlice({
     userId: "",
     name: "",
     isLogin: false,
+    data:{},
   },
   reducers: {
     loginCheck: (state, {payload}) => {
@@ -18,6 +18,9 @@ const userSlice = createSlice({
       state.userId = JSON.parse(payload).userId;
       state.name = JSON.parse(payload).name;
     },
+    updateName : (state, action) => {
+      state.name = action.payload;
+    }
   },
   extraReducers: {
     [logout.fulfilled]: (state) => {
@@ -29,9 +32,8 @@ const userSlice = createSlice({
       state.name = "";
       state.isLogin = true;
     },
-    [nicknameChange.fulfilled]: (state, {payload}) => {
-      // state.user = updatedUser;
-      console.log("실행");
+    [nicknameChange.fulfilled]: (state, {payload: updateName}) => {
+      state.data = updateName;
     },
   },
 });

@@ -20,15 +20,26 @@ export const login = createAsyncThunk(
         const token = response.data.token;
         const user_data = {
           userId: userId,
-          name: name,
           accessToken: token,
         };
+        const name_data = {
+          name: name,
+        }
         localStorage.setItem("user", JSON.stringify(user_data));
-        history.push("/");
+        localStorage.setItem("name", JSON.stringify(name_data));
+        console.log(response)
+       if(response.data.ok){
+         history.push("/")
+       }
       });
       return response;
     } catch (e) {
-      console.log(e);
+      function loginError() {
+        alert("로그인을 실패하였습니다. 아이디나 비밀번호를 확인해주세요.")
+        history.back();
+      }
+      loginError();
+      return false;
     }
   }
 );

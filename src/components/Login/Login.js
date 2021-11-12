@@ -5,7 +5,7 @@ import {useDispatch} from "react-redux";
 import "./Login.scss"
 import {motion} from "framer-motion";
 import {buttonVariants} from "../../common/animation";
-
+import singup from "../../image/singup.png";
 import {Naver_login} from "./Naver_login";
 
 
@@ -34,8 +34,8 @@ const Login = () => {
 
   const LoginHandler = (event) => {
     event.preventDefault();
-    if (email === "" || password === "") {
-      alert("빈칸");
+    if (email === " " || password === " ") {
+      window.alert("빈칸");
     }
     dispatch(login({
       email,
@@ -49,7 +49,7 @@ const Login = () => {
     <>
       <div className="login-Form">
         <div className="login">
-          <h1 className="formMargin">Sign in</h1>
+          <h1 className="formMargin">출석체크하기</h1>
           <form className="loginForm">
             <div>
               <input className="Input" value={email} placeholder="Email"
@@ -63,11 +63,12 @@ const Login = () => {
 
             <motion.button type="submit" onClick={LoginHandler} className="colorBtn"
                            variants={buttonVariants}
-                           whileHover="hover">로그인
+                           whileHover="hover">LOGIN
             </motion.button>
             <br/>
+            <div className="social_login">
             <Naver_login/>
-
+            </div>
           </form>
         </div>
         <motion.div className="login"
@@ -75,8 +76,8 @@ const Login = () => {
                     initial="hidden"
                     animate="visible">
           <div className="rightLogin">
-            <h1 className="formMargin">Hello !</h1>
-            <div class="signUpInfo">출석체크를 하시려면 회원가입을 해주세요 .</div>
+            <h1 className="formMargin"><img src={singup}/></h1>
+            <div class="signUpInfo">스터디원에게 오늘 하루 공부의 시작을 <br/> 알리려면 지금바로 출석체크의 회원이 되어주세요 !</div>
 
             <Link to="/singup">
               <motion.button className="noneColorBtn" variants={buttonVariants}

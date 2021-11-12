@@ -8,25 +8,34 @@
   padding: 0 40px 10px 40px;
   display: flex;
   align-items: center;
-  justify-content: flex-start;
+  justify-content: space-around;
   font-size: 20px;
   font-weight: bold;
-  //background-color: #f0f0f0;
+}
+
+.headerLogo>img {
+  width: 160px;
+  margin-top: 25px;
+}
+.Logo {
 
 }
-.present {
-  color: #5a6776;
-  font-family: 'Monoton', cursive;
-  cursor: pointer;
-  font-size: 28px;
-  margin-top: 10px;
-  margin-right: 60px;
 
+.Logo>img{
+    width: 160px;
+    margin-top: 25px;
+  cursor: pointer;
 }
 
 .nav {
   margin-top: 20px;
   font-size: 15px;
+  cursor: pointer;
 }
-
+.navMenu{
+  width: 200px;
+  display: flex;
+  justify-content: space-around;
+  margin-left: 800px;
+}
 

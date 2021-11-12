@@ -1,6 +1,7 @@
 import React, {useState} from "react";
 import {useDispatch} from "react-redux";
 import {nicknameChange} from "../../redux/user/profile";
+import {history} from "../../redux/history";
 
 
 const ChangeName = () => {
@@ -11,7 +12,6 @@ const ChangeName = () => {
   const changeNameChange = (event) => {
     event.preventDefault();
     const accessToken = JSON.parse(token).accessToken;
-    console.log(accessToken);
     dispatch(nicknameChange({
       accessToken,
       changeName,
@@ -23,6 +23,9 @@ const ChangeName = () => {
 
   return (
     <>
+      <button onClick={() => {
+        history.push("/changepwd")
+      }}>비밀번호 변경하러가기</button>
       <input placeholder="닉네임변경" type="text"
              value={changeName}
              onChange={(e) => SetChangeName(e.target.value)}/>

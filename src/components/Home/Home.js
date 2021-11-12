@@ -62,7 +62,10 @@ const Home = () => {
 
 
   const atts = useSelector((state) => state.att.info);
-  const name = token ? JSON.parse(token).name : "";
+
+  const names = localStorage.getItem("name");
+
+  const name = token ? JSON.parse(names).name:"";
 
   const handlePageChange = (page) => {
     setPage(page);
